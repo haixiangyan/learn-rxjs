@@ -6,13 +6,19 @@
 </head>
 <body>
 
-<button id="btn">fromEvent</button>
+<button id="fromEventBtn">fromEvent</button>
+<button id="scanBtn">scan</button>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/7.3.0/rxjs.umd.min.js" integrity="sha512-y3JTS47nnpKORJX8Jn1Rlm+QgRIIZHtu3hWxal0e81avPrqUH48yk+aCi+gprT0RMAcpYa0WCkapxe+bpBHD6g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
   const { fromEvent } = rxjs;
+  const { scan } = rxjs.operators;
 
-  fromEvent(btn, 'click').subscribe(() => console.log('clicked'))
+  fromEvent(fromEventBtn, 'click').subscribe(() => console.log('点击'))
+
+  fromEvent(scanBtn, 'click')
+    .pipe(scan(count => count + 1, 0))
+    .subscribe((count) => console.log(`点击了 ${count} 次`))
 </script>
 </body>
 </html>
