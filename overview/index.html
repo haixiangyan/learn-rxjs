@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>RxJS Overview</title>
+</head>
+<body>
+
+<button id="btn">fromEvent</button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/7.3.0/rxjs.umd.min.js" integrity="sha512-y3JTS47nnpKORJX8Jn1Rlm+QgRIIZHtu3hWxal0e81avPrqUH48yk+aCi+gprT0RMAcpYa0WCkapxe+bpBHD6g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+  const { fromEvent } = rxjs;
+
+  fromEvent(btn, 'click').subscribe(() => console.log('clicked'))
+</script>
+</body>
+</html>
